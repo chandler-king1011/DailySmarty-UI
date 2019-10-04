@@ -20,7 +20,6 @@ getRecentPosts() {
     this.setState({
       recentPosts: response.data.posts.splice(0, 3)
     });
-    console.log(this.state.recentPosts);
   }
   ).catch(error => {
     console.log("Get recent posts error", error);
@@ -28,11 +27,8 @@ getRecentPosts() {
 }
 
 recentPosts() {
-  return this.state.recentPosts.map(i => {
-    return <RecentPost
-    key={i.id}
-    title={i.title}
-    topics={i.associated_topics} />;
+  return this.state.recentPosts.map(post => {
+    return <RecentPost key={post.id} {...post}/>;
   })
 }
 

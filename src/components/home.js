@@ -8,7 +8,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className='app'>
-        <Logo />
+        <Logo size={"105px"}/>
         <SearchBar />
         <RecentPosts />
       </div>

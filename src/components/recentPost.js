@@ -7,18 +7,24 @@ export default class RecentPost extends Component {
 
   this.state = {
       title: this.props.title,
-      topics: this.props.topics
+      topics: this.props.associated_topics
   }
+}
+
+renderTopics() {
+  let topics = this.state.topics.map((topic, index) => {
+    return <span key={index}>{topic}</span>
+  })
+  return topics;
 }
 
 
 
   render() {
-    const topic = this.state.topics[0];
     return(
-        <li>
+        <li className="recent-post">
             <div className="recent-post-title">{this.state.title}</div>
-            <div className="recent-post-topics">{topic}</div>
+            <div className="recent-post-topics">{this.renderTopics()}</div>
         </li>
     )
 }
