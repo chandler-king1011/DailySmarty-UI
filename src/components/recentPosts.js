@@ -1,50 +1,50 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import RecentPost from './recentPost';
+import { connect } from 'react-redux';
 
 
-export default class RecentPosts extends Component {
-  constructor() {
+import * as actions from '../actions';
+
+
+class RecentPosts extends Component {
+  
+constructor() {
   super();
 
-  this.state = {
-    recentPosts: []
+    this.renderPosts=this.renderPosts.bind(this);
   }
 
-  this.getRecentPosts = this.getRecentPosts.bind(this);
-  this.recentPosts = this.recentPosts.bind(this);
+  componentDidMount() {
+    this.props.fetchRecentPosts();
 }
 
-getRecentPosts() {
-  axios.get("https://api.dailysmarty.com/posts").then(response => {
-    this.setState({
-      recentPosts: response.data.posts.splice(0, 3)
-    });
-  }
-  ).catch(error => {
-    console.log("Get recent posts error", error);
-  });
-}
-
-recentPosts() {
-  return this.state.recentPosts.map(post => {
-    return <RecentPost key={post.id} {...post}/>;
+renderPosts = function() {
+  const posts = this.props.recentPosts.map((post, index) => {
+    if (index < 3) {
+    return (
+    <li key={index}>
+      {post.title}
+    </li>);}
   })
-}
 
-componentDidMount() {
-  this.getRecentPosts();
+  return posts;
 }
-
 
   render() {
     return(
         <div className="recent-posts-wrapper">
             <div className="recent-posts-heading">Recent Posts:</div>
             <ul className="recent-posts">
-                {this.recentPosts()}
+                {this.renderPosts()}
             </ul>
         </div>
     )
 }
 }
+
+function mapStateToProps(state){
+  return {
+    recentPosts: state.posts.recentPosts
+  }
+}
+
+export default connect(mapStateToProps, actions)(RecentPosts);
