@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
+import Post from './post';
 import * as actions from '../actions';
 
 
@@ -17,22 +18,28 @@ constructor() {
     this.props.fetchRecentPosts();
 }
 
+
 renderPosts = function() {
   const posts = this.props.recentPosts.map((post, index) => {
     if (index < 3) {
-    return (
-    <li key={index}>
-      {post.title}
-    </li>);}
-  })
-
+      return(
+      <Post {...post} key={index}/>
+      )
+     }
+    }
+  )
   return posts;
 }
+
+
+
+
+
 
   render() {
     return(
         <div className="recent-posts-wrapper">
-            <div className="recent-posts-heading">Recent Posts:</div>
+            <div className="recent-posts-heading">Recent Posts</div>
             <ul className="recent-posts">
                 {this.renderPosts()}
             </ul>
