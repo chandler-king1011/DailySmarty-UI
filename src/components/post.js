@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import AnimateHeight from 'react-animate-height';
 
 class Post extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state= {
+            height: 0
+        }
+    }
 
     renderPostTopics() {
         let topics = this.props.associated_topics.map((topic ,index) => {
@@ -25,6 +34,18 @@ class Post extends Component {
         return links;
     }
 
+    handleMouseEnter() {
+        this.setState({
+            height: 70
+        })
+    }
+    handleMouseLeave() {
+        this.setState({
+            height: 0
+        })
+    }
+
+
     render() {
 
       if (this.props.type === "recent"){
@@ -45,11 +66,19 @@ class Post extends Component {
                     {this.renderPostTopics()}
                 </div>
                 <div className="result-post-title">
-                    {this.props.title}
+                    <a href={this.props.url_for_post}
+                       onMouseEnter={() => this.handleMouseEnter()}
+                       onMouseLeave={() => this.handleMouseLeave()}
+                       >{this.props.title}</a>
                 </div>
-                <div className="result-post-links">
-                    {this.renderLinks()}
-                </div>
+                <AnimateHeight
+                    duration={500}
+                    height={this.state.height}
+                >
+                    <div className="result-post-links">
+                        {this.renderLinks()}
+                    </div>
+                </AnimateHeight>
             </li>
           )
       }
