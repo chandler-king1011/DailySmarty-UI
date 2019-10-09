@@ -16,7 +16,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className='app'>
+      <div className="home-wrapper">
         <Logo size={"105px"}/>
         <SearchBar onSubmit={(query) => this.handleSearchBarSubmit(query)} />
         <RecentPosts />
