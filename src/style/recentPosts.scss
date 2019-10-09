@@ -1,0 +1,21 @@
+.recent-posts-wrapper {
+
+    .recent-posts-heading {
+        margin-bottom: 21px;
+        color: $blue-color-one;
+        font-size: 14px;
+    }
+
+    .recent-posts {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 66vw;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 42px;
+
+
+    }
+}
