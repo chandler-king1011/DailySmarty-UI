@@ -1,13 +1,11 @@
 .search-bar {
     input {
         padding-left: 35px;
-        height: 118px;
         width: 66vw;
         color: $gray-color-one;
         box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.1);
         border: none;
         border-radius: 5px;
-        font-size: 40px;
         transition: 0.2s ease-in-out;
 
         &::placeholder {
@@ -31,4 +29,20 @@
         color: $gray-color-two;
 
     }
+}
+
+.search-bar-home {
+    input {
+        height: 118px;
+        font-size: 40px;
+    }
+
+}
+
+.search-bar-results {
+    input {
+        height: 36px;
+        font-size: 22px;
+    }
+
 }

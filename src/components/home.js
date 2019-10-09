@@ -18,7 +18,7 @@ class Home extends Component {
     return (
       <div className="home-wrapper">
         <Logo size={"105px"}/>
-        <SearchBar onSubmit={(query) => this.handleSearchBarSubmit(query)} />
+        <SearchBar page="home" onSubmit={(query) => this.handleSearchBarSubmit(query)} />
         <RecentPosts />
       </div>
     );
