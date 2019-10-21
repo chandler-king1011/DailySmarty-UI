@@ -32,9 +32,28 @@
                     color: $gray-color-one;
                     font-size: 18px;
                     line-height: 22px;
-
+                    text-decoration: none;
+                    border-bottom: 1px solid transparent;
+                    &:hover {
+                        border-bottom: 1px solid $gray-color-one;
+                    }
                 }
             }
         }
+    }
+}
+
+.post-link {
+    min-height: 70px;
+    display: flex;
+    .post-link-box {
+        min-width: 70px;
+        background-color: $gray-color-three;
+        margin-right: 16px;
+    }
+    .post-link-link a {
+        color: $gray-color-one;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
