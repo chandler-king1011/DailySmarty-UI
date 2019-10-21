@@ -16,6 +16,19 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 42px;
 
+    .recent-post-title {
+        margin-bottom: 15px;
+    }
+
+    .recent-post-topics {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .post-topic {
+            color: $gray-color-one;
+            font-size: 0.75em
+        }
+    }
 
     }
 }
