@@ -18,7 +18,7 @@ export default class Logo extends Component {
   render() {
     return (
     <div className="logo-wrapper-main">
-        <Link to="/">
+        <Link className={this.props.logoPage}to="/">
           <img style={this.state.logoSize} alt="logo" src={logo} />
         </Link>
     </div>

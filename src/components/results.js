@@ -16,7 +16,7 @@ class Results extends Component {
     render() {
         return (
             <div className="results">
-                <Logo size={"55px"} />
+                <Logo logoPage="results-logo" size={"55px"} />
                 <SearchBar page="results" onSubmit={(query) => this.handleSearchBarSubmit(query)} />
                 <ResultsPosts />
             </div>
