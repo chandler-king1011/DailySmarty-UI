@@ -38,6 +38,10 @@
                         border-bottom: 1px solid $gray-color-one;
                     }
                 }
+                .result-post-links {
+                    display: flex;
+                    
+                }
             }
         }
     }
@@ -46,6 +50,8 @@
 .post-link {
     min-height: 70px;
     display: flex;
+    flex-basis: 285px;
+    margin-right: 37px;
     .post-link-box {
         min-width: 70px;
         background-color: $gray-color-three;
